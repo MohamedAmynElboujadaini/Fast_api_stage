@@ -12,11 +12,12 @@ pipeline {
                 echo 'This is Stage 2'
             }
         }
-        stage('Stage 3') {
-            steps {
-                echo 'This is Stage 3'
-            }
+        stage('SonarQube Analysis') {
+        def scannerHome = tool 'SonarScanner';
+        withSonarQubeEnv() {
+          sh "${scannerHome}/bin/sonar-scanner"
         }
+      }
         stage('Stage 4') {
             steps {
                 echo 'This is Stage 4'
