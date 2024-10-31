@@ -1,0 +1,107 @@
+{% extends "base_skeleton.html" %}
+
+{% block head %}
+<title>Prediction Form</title>
+<!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<style>
+    /* Keyframes for the animation */
+    @keyframes Header_animation {
+        0% {
+            left: 0;
+            color: #ff0000;
+            /* Red */
+        }
+    
+        25% {
+            left: 25%;
+            color: #000000;
+            /* Black */
+        }
+    
+        50% {
+            left: 50%;
+            color: #808080;
+            /* Gray */
+        }
+    
+        75% {
+            left: 75%;
+            color: #ff0000;
+            /* Red */
+        }
+    
+        100% {
+            left: 100%;
+            color: #000000;
+            /* Black */
+        }
+    }
+    
+    
+
+
+    #t {
+        animation: Header_animation 10s ease-out infinite;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 0%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    #btn_predict {
+
+        background: linear-gradient(270deg, #71eedd, #e01600, #e97aff, #ec4f4f);
+        background-size: 800% 800%;
+        animation: gradientAnimation 15s ease-in infinite;
+    }
+
+
+</style>
+<div class="form">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col"><h1 class="mb-4" id="t">Prediction Form</h1></div>
+            <div class="col"><img src="{{ url_for('static', path='imgs/yazaki-seeklogo.svg') }}" alt="Girl in a jacket" > </div>
+        </div>
+
+        <form action="/predict" method="POST">
+            <div class="row">
+                <div class="form-group" style=" width: auto;">
+                    <label for="a">Orders list size</label>
+                    <input type="number" class="form-control" name="a" id="a" placeholder="Enter first index" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group"  style=" width: auto;">
+                    <label for="number_orders">Number of orders</label>
+                    <input type="number" class="form-control d-inline" name="number_orders" id="number_orders"
+                        placeholder="Enter how much ordesr you wnat to place" min="1" max="3" value="3" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="btn_predict">Predict</button>
+        </form>
+    </div>
+    
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
+
+{% endblock %}
