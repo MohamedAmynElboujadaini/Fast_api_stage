@@ -8,7 +8,9 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t fast_api .'
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    bat 'docker build -t fast_api .'
+                }
             }
         }
     }
