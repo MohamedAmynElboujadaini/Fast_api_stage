@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                echo 'opo'
+                bat 'docker --version'
             }
         }
     }
