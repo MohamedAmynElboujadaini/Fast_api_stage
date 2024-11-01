@@ -9,8 +9,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Shell command to build the Docker image
-                    sh 'docker build -t myfastapiapp:latest .'
+                    
+                    sh 'docker --version'
                 }
             }
         }
