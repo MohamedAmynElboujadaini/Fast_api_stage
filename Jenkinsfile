@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                bat 'docker --version'
+                bat 'docker build -t fast_api .'
             }
         }
     }
