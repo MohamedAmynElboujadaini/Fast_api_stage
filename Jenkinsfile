@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 // Checkout the source code from your repository
-                git 'https://github.com/MohamedAmynElboujadaini/Fast_api_stage.git' // Replace with your repository URL
+                git 'https://github.com/MohamedAmynElboujadaini/Fast_api_stage.git' , branch: 'main' // Replace with your repository URL
             }
         }
 
