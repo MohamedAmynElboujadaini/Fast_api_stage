@@ -1,28 +1,18 @@
 pipeline {
     agent any
-
     stages {
         stage('Checkout Code') {
             steps {
-                // Checkout the source code from your repository
-                git 'https://github.com/MohamedAmynElboujadaini/Fast_api_stage.git' , branch: 'main' // Replace with your repository URL
+                git url: 'https://github.com/MohamedAmynElboujadaini/Fast_api_stage.git', branch: 'main'
             }
         }
-
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Build the Docker image locally
+                    // Shell command to build the Docker image
                     sh 'docker build -t myfastapiapp:latest .'
                 }
             }
-        }
-    }
-
-    post {
-        always {
-            // Clean up the workspace
-            cleanWs()
         }
     }
 }
