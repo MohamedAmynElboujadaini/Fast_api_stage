@@ -8,10 +8,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                script {
-                    
-                    sh 'docker --version'
-                }
+                echo 'opo'
             }
         }
     }
