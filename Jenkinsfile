@@ -1,26 +1,28 @@
 pipeline {
-    agent any 
+    agent any
 
     stages {
-        stage('Stage 1') {
+        stage('Checkout Code') {
             steps {
-                echo 'This is Stage 1'
+                // Checkout the source code from your repository
+                git 'https://github.com/myusername/myfastapiapp.git' // Replace with your repository URL
             }
         }
-        stage('Stage 2') {
+
+        stage('Build Docker Image') {
             steps {
-                echo 'This is Stage 2'
+                script {
+                    // Build the Docker image locally
+                    sh 'docker build -t myfastapiapp:latest .'
+                }
             }
         }
-        stage('Stage 3') {
-            steps {
-                echo 'This is Stage 3'
-            }
-        }
-        stage('Stage 4') {
-            steps {
-                echo 'This is Stage 4'
-            }
+    }
+
+    post {
+        always {
+            // Clean up the workspace
+            cleanWs()
         }
     }
 }

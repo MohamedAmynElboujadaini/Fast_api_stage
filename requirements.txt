@@ -1,0 +1,7 @@
+fastapi==0.95.1
+uvicorn==0.22.0
+pydantic==1.10.8
+httpx==0.23.3  # Optional, for making HTTP requests
+sqlalchemy==2.0.13  # Optional, if using a database
+databases==0.6.2  # Optional, for async database support
+aiosqlite==0.17.0  # Optional, for SQLite support
